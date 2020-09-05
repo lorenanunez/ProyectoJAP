@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="author" content="Lorena Nuñez">
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="description" content="Proyecto de Jóvenes a Programar - Desarrollo Web 2020">
+		
+		<title>eMercado - Todo lo que busques está aquí</title>
+		
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+		<link href="css/dropzone.css" rel="stylesheet">
+		
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/sell.js"></script>
+		<script src="js/dropzone.js"></script>
+	</head>
+	
+	<body>
+		
+		<header>
+			<nav class="site-header sticky-top py1 bg-dark">
+				<div class="container d-flex flex-column flex-md-row justify-content-between">
+					<a id="nav_start" class="py-2 d-none d-md-inline-block" href="main.html">Inicio</a>
+					<a id="nav_categories" class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+					<a id="nav_products" class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+					<a id="nav_sell" class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+					<a id="nav_cart" class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+					<a id="nav_logout" class="py-2 d-none d-md-inline-block" href="index.html">Cerrar sesión</a>
+					<a id="nav_username" class="py-2 d-none d-md-inline-block" href="my-profile.html">
+						<img id="nav_userpic" class="profile-icon mr-1" src="img/1024px-Crystal_Clear_kdm_user_female.svg.png" alt="Foto del usuario">Usuario
+					</a>
+				</div>
+			</nav>
+		</header>
+		
+		<section id="mainSection">
+			<div class="container">
+				<div class="text-center p-4">
+					<h2>Vender</h2>
+					<p class="lead">Ingresa los datos del artículo a vender.</p>
+				</div>
+				<div class="row justify-content-md-center">
+					<div class="col-md-8 order-md-1">
+						<h4 class="mb-3">Información del producto</h4>
+						<form class="needs-validation" id="sell-info">
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label for="productName">Nombre</label>
+									<input type="text" class="form-control" id="productName" placeholder="" value="" >
+									<div class="invalid-feedback">Ingresa un nombre</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 order-md-1">
+									<label for="zip">Imágenes</label>
+									<div class="needsclick dz-clickable" id="file-upload">
+										<div class="dz-message needsclick">Arrastra tus fotos aquí<br></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 mb-3">
+									<label for="productDescription">Descripción</label>
+									<textarea class="form-control" id="productDescription" rows="3"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 mb-3">
+									<label for="zip">Costo</label>
+									<input type="number" class="form-control" id="productCostInput" placeholder="" required="" value="0" min="0">
+									<div class="invalid-feedback">El costo debe ser mayor que 0.</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<label for="state">Moneda</label>
+									<select class="custom-select d-block w-100" id="productCurrency" required="">
+										<option value="uyu" selected>Pesos Uruguayos (UYU)</option>
+										<option value="usd">Dólares (USD)</option>
+									</select>
+									<div class="invalid-feedback">Ingresa una categoría válida.</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-7 mb-3">
+									<label for="state">Categoría</label>
+									<select class="custom-select d-block w-100" id="productCategory">
+										<option value="" disabled selected>Elija la categoría...</option>
+										<option value="cars">Autos</option>
+										<option value="toys">Juguetes</option>
+										<option value="furniture">Muebles</option>
+										<option value="tools">Herramientas</option>
+										<option value="computers">Computadoras</option>
+										<option value="clothing">Vestimenta</option>
+									</select>
+									<div class="invalid-feedback">Por favor ingresa una categoría válida.</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 mb-3">
+									<label for="productCountInput">Cantidad en stock</label>
+									<input type="number" class="form-control" id="productCountInput" placeholder="" required="" value="1" min="0">
+									<div class="invalid-feedback">La cantidad es requerida.</div>
+								</div>
+							</div>
+							<hr class="mb-4">
+							<h5 class="mb-3">Tipo de publicación</h5>
+							<div class="d-block my-3">
+								<div class="custom-control custom-radio">
+									<input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+									<label class="custom-control-label" for="goldradio">Gold (13%)</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+									<label class="custom-control-label" for="premiumradio">Premium (7%)</label>
+								</div>
+									<div class="custom-control custom-radio">
+									<input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+									<label class="custom-control-label" for="standardradio">Estándar (3%)</label>
+								</div>
+								<div class="row">
+									<button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Ver condiciones</button>
+								</div>
+							</div>
+							<hr class="mb-4">
+							<h4 class="mb-3">Costos</h4>
+							<ul class="list-group mb-3">
+								<li class="list-group-item d-flex justify-content-between lh-condensed">
+									<div>
+										<h6 class="my-0">Precio</h6>
+										<small class="text-muted">Unitario del producto</small>
+									</div>
+									<span class="text-muted" id="productCostText">-</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between lh-condensed">
+									<div>
+										<h6 class="my-0">P0rcentaje</h6>
+										<small class="text-muted">Según el tipo de publicación</small>
+									</div>
+									<span class="text-muted" id="comissionText">-</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between">
+									<span>Total ($)</span>
+									<strong id="totalCostText">-</strong>
+								</li>
+							</ul>
+							<hr class="mb-4">
+							<button class="btn btn-primary btn-lg" type="submit">Vender</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<footer class="text-muted">
+			<div class="container">
+				<p class="float-right"><a href="#">Volver arriba</a></p>
+				<p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+				<p>Clickea <a target="_blank" href="JAP_2020_DW_-_Propuesta_del_obligatorio_Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+			</div>
+		</footer>
+		
+	</body>
+</html>
