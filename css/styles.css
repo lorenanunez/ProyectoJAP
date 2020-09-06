@@ -163,3 +163,15 @@ a.custom-card:hover {
           font-size: 3.5rem;
         }
       }
+
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+
+.checked {
+  color: #fc6f03;
+}

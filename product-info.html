@@ -1,59 +1,120 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
-<html lang="en">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-</head>
-
-<body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="oldindex.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-    </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
-</body>
-
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="author" content="Lorena Nuñez">
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="description" content="Proyecto de Jóvenes a Programar - Desarrollo Web 2020">
+		
+		<title>eMercado - Todo lo que busques está aquí</title>
+		
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/product-info.js"></script>
+		<script src="http://stevenlevithan.com/assets/misc/date.format.js"></script>
+	</head>
+	
+	<body>
+		
+		<header>
+			<nav class="site-header sticky-top py1 bg-dark">
+				<div class="container d-flex flex-column flex-md-row justify-content-between">
+					<a id="nav_start" class="py-2 d-none d-md-inline-block" href="main.html">Inicio</a>
+					<a id="nav_categories" class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+					<a id="nav_products" class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+					<a id="nav_sell" class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+					<a id="nav_cart" class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+					<a id="nav_logout" class="py-2 d-none d-md-inline-block" href="index.html">Cerrar sesión</a>
+					<a id="nav_username" class="py-2 d-none d-md-inline-block" href="my-profile.html">
+						<img id="nav_userpic" class="profile-icon mr-1" src="img/1024px-Crystal_Clear_kdm_user_female.svg.png" alt="Foto del usuario">Usuario
+					</a>
+				</div>
+			</nav>
+		</header>
+		
+		<section id="mainSection">
+			<main role="main">
+				<div class="container mt-5">
+					<div class="text-center p-4">
+						<h2>Descripción del producto</h2>
+						<p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+						<p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto seleccionado previamente, siempre se visualizará el siguiente: <strong id="carname_warning_p"></strong>.</p>
+					</div>
+					<h3 id="productName"></h3>
+					<hr class="my-3">
+					<dl>
+						<dt>Descripción</dt>
+						<dd>
+							<p id="productDescription"></p>
+						</dd>
+						<dt>Precio del producto</dt>
+						<dd>
+							<p id="productPrice"></p>
+						</dd>
+						<dt>Categoría del producto</dt>
+						<dd>
+							<p id="productCategory"></p>
+						</dd>
+						<dt>Imágenes ilustrativas</dt>
+						<dd>
+							<div class="row text-center text-lg-left pt-2" id="productImagesGallery"></div>
+						</dd>
+					</dl>
+					
+					<div id="comment_section">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 mr-auto">
+									<div class="page-header">
+										<h1><small id="commentCount" class="pull-right">comments_number</small><br>Comentarios:</h1>
+									</div>
+									<div id="comments" class="comments-list">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="comment_box">
+						<div class="container">
+							<div class="md-form">
+								<form id="form_add_comment" class="form-group">
+									<h4>Dejanos tu comentario:</h4>
+									<i class="fas fa-pencil-alt prefix"></i>
+									<label for="commentText">Cuerpo del comentario:</label>
+									<textarea id="commentText" class="md-textarea form-control" rows="3" placeholder="Cuerpo del comentario" required></textarea>
+									<div class="col-md-4 ml-auto mr-auto pull-left">
+										<label for="rateSlider">Clasifica el producto (del 0 al 5):</label>
+										<input id="rateSlider" class="form-control" type="range" min="0" max="5">
+									</div><br><br><br>
+									<input id="btnSendComment" class="align-content-center" type="submit" value="Comentar">
+								</form>
+							</div>
+						</div>
+					</div>
+					<a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+				</div>
+			</main>
+		</section>
+		
+		<footer class="text-muted">
+			<div class="container">
+				<p class="float-right"><a href="#">Volver arriba</a></p>
+				<p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+				<p>Clickea <a target="_blank" href="JAP_2020_DW_-_Propuesta_del_obligatorio_Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+			</div>
+		</footer>
+		
+	</body>
 </html>

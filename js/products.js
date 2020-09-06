@@ -149,7 +149,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	document.getElementById("tbBuscar").addEventListener("input", function(e) {
 		let inputText = e.target.value;
-		console.log("Texto de búsqueda: " + inputText);
 		if (inputText === "" || !inputText.trim()) {
 			searchTerm = undefined;
 		} else {
