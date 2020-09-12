@@ -54,6 +54,27 @@ function showComments() {
 	});
 }
 
+function showRelatedProducts() {
+	getJSONData(PRODUCTS_URL).then(function(resultObj) {
+		if (resultObj.status === "ok") {
+			
+			let newHTML = "";
+			let rpArray = product.relatedProducts;
+			let productsInfo = resultObj.data;
+			
+			for (let i = 0; i < rpArray.length; i++) {
+				newHTML += `<div class="col-lg-3 col-md-4 col-6">
+								<div class="d-block mb-4 h-100">
+									<p><b>` + productsInfo[rpArray[i]].name + `</b></p>
+									<a href=""><img class="img-fluid img-thumbnail" src="` + productsInfo[rpArray[i]].imgSrc + `" alt="Imagen del producto ` + productsInfo[rpArray[i]].name + `"></a>
+								</div>
+							</div>`;
+			}
+			document.getElementById("relatedProductsGallery").innerHTML = newHTML;
+		}
+	});
+}
+
 function postComment() {
 	/* 	Para formatear la fecha en formato yyyy-mm-dd HH-MM-ss como está en el JSON
 		usé una librería escrita por Steven Levithan llamada "date.format"
@@ -89,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 	
 	showComments();
+	showRelatedProducts();
 	
 	document.getElementById("form_add_comment").addEventListener("submit", function(evt) {
 		evt.preventDefault();
