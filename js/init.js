@@ -40,11 +40,13 @@ var getJSONData = function(url){
 		});
 }
 
-document.addEventListener("DOMContentLoaded", function(e) {
-	document.getElementById("nav_username").innerHTML = `<img id="nav_userpic" class="profile-icon mr-1" src="img/1024px-Crystal_Clear_kdm_user_female.svg.png" alt="Foto del usuario">` + localStorage.getItem("user");
-	
-	
-	
-	
-	
+function logout() {
+	localStorage.clear();
+	location.href = "index.html";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("btn_username").innerHTML = `<img id="nav_userpic" class="profile-icon mr-1" src="img/1024px-Crystal_Clear_kdm_user_female.svg.png" alt="Foto del usuario">` + localStorage.getItem("user");
+	document.getElementById("nav_logout").href = "javascript:logout()";
 });
+

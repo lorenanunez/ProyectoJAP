@@ -2,17 +2,15 @@ var product = {};
 var commentArray = {};
 
 function showImagesGallery(array) {
-    let htmlContentToAppend = "";
+	let newHTML = ``;
+	let elementClass = "carousel-item active";
     for (let i = 0; i < array.length; i++){
         let imageSrc = array[i];
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+        newHTML += `<div class="` + elementClass + `">
+										<img src="` + imageSrc + `" class="d-block w-100" alt="Imágen del producto">
+									</div>`;
+        document.getElementById("carousel-inner-content").innerHTML = newHTML;
+		elementClass = "carousel-item";
     }
 }
 
@@ -80,6 +78,8 @@ function postComment() {
 		usé una librería escrita por Steven Levithan llamada "date.format"
 		Toda la documentación está en: http://blog.stevenlevithan.com/archives/date-time-format
 		Link de la librería (linkeada en product-info.html): http://stevenlevithan.com/assets/misc/date.format.js
+		
+		Como dijo Santiago: "No hay que re-inventar la rueda".
 	*/	
 	let unformmatedDate = new Date();
 	let newCommentData = {
@@ -106,14 +106,16 @@ document.addEventListener("DOMContentLoaded", function(){
             document.getElementById("carname_warning_p").innerHTML = product.name;
 
             showImagesGallery(product.images);
+			
+			showComments();
+			showRelatedProducts();
+
+			document.getElementById("form_add_comment").addEventListener("submit", function(evt) {
+				evt.preventDefault();
+				postComment();
+			});
         }
     });
 	
-	showComments();
-	showRelatedProducts();
 	
-	document.getElementById("form_add_comment").addEventListener("submit", function(evt) {
-		evt.preventDefault();
-		postComment();
-	});
 });

@@ -31,11 +31,16 @@
 					<a id="nav_categories" class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
 					<a id="nav_products" class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
 					<a id="nav_sell" class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-					<a id="nav_cart" class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-					<a id="nav_logout" class="py-2 d-none d-md-inline-block" href="index.html">Cerrar sesión</a>
-					<a id="nav_username" class="py-2 d-none d-md-inline-block" href="my-profile.html">
-						<img id="nav_userpic" class="profile-icon mr-1" src="img/1024px-Crystal_Clear_kdm_user_female.svg.png" alt="Foto del usuario">Usuario
-					</a>
+					<div class="dropdown">
+						<button id="btn_username" class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<img id="nav_userpic" class="profile-icon mr-1" src="img/1024px-Crystal_Clear_kdm_user_female.svg.png" alt="Foto del usuario">Usuario
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a id="nav_cart" class="dropdown-item" href="cart.html">Mi carrito</a>
+							<a id="nav_profile" class="dropdown-item" href="my-profile.html">Mi perfil</a>
+							<a id="nav_logout" class="dropdown-item" href="index.html">Cerrar sesión</a>
+						</div>
+					</div>
 				</div>
 			</nav>
 		</header>
